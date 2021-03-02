@@ -3,22 +3,21 @@ module.exports = {
     'eslint-config-airbnb-typescript',
     'eslint-config-airbnb/hooks',
     'eslint-config-prettier',
-    'eslint-config-prettier/react',
     'eslint-config-prettier/@typescript-eslint',
   ].map(require.resolve),
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'import'],
   rules: {
     'no-param-reassign': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'no-plusplus': 0,
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 1,
+    'react/react-in-jsx-scope': 0,
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -45,10 +44,5 @@ module.exports = {
       },
     ],
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-  },
-  settings: {
-    'import/resolver': {
-      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
-    },
   },
 };
